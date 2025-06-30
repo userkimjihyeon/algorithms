@@ -8,6 +8,7 @@ import java.util.List;
 public class A01Dfs방문순서 {
     static List<List<Integer>> adjList; //전역변수
     static boolean[] visited;
+
     public static void main(String[] args) {
 //        방문할 수 있는 점이 여러개인경우, 정점번호가 작은것을 먼저 방문
 //        출발은 0부터 dfs로 방문시 방문순서 : 0->1->3->2->4
@@ -22,15 +23,17 @@ public class A01Dfs방문순서 {
         adjList = new ArrayList<>();
 //        visited = new boolean[nodes.length];  //간선수(X)
         visited = new boolean[5];               //정점수(O)
+
         for (int i=0; i<5; i++) {
-            adjList.add(new ArrayList<>());
+            adjList.add(new ArrayList<>());     //adjList에 빈리스트 5개 생성
         }
         for (int i=0; i<nodes.length; i++) {
 //            단방향
-            adjList.get(nodes[i][0]).add(nodes[i][1]); //{0,2}의 0을 가져와서 adjlist의 0에 2넣기
+            adjList.get(nodes[i][0]).add(nodes[i][1]); //0: 2
 //            양방향
-            adjList.get(nodes[i][1]).add(nodes[i][0]); //{0,2}의 2를 가져와서 adjlist의 2에 0넣기
+            adjList.get(nodes[i][1]).add(nodes[i][0]); //2: 0
         }
+
 //        System.out.println(adjList);
 //        정점번호가 작은것부터 방문하기 위한 정렬 : [[2, 1], [0, 3], [0, 3, 4], [1, 2], [2]] -> [[1, 2], [0, 3], [0, 3, 4], [1, 2], [2]]
         for(int i=0; i<adjList.size(); i++) {
