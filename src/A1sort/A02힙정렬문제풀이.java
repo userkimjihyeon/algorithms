@@ -57,12 +57,11 @@ static class Solution2 {
         for(int i=0; i<works.length; i++) {
             pq.offer(works[i]);
         }
-        System.out.println(pq);
         //pq의 max-1하기 (남은시간 n)
-        for(int i=0; i<n; i++) {    //0~3
-            int max = pq.poll();    //0보다 클 때만 감소
-            if(max > 0) {
-                pq.offer(max-1);
+        for(int i=0; i<n; i++) {         //0~3
+            int max = pq.poll();         //pq 최댓값 꺼내서 max에 넣기
+            if(max > 0) {                //max가 0보다 크면
+                pq.offer(max-1);      //max-1을 pq에 넣기
             }
         }
         for(int i=0; i<works.length; i++) {
