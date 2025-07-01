@@ -9,16 +9,19 @@ public class A02Bfs최단거리 {
 
     public static void main(String[] args) {
         int[][] nodes = {{0,2}, {0,1}, {1,3}, {2,3}, {2,4}};
+
         adjList = new ArrayList<>();
         visited = new boolean[5];
 
         for (int i=0; i<5; i++) {
             adjList.add(new ArrayList<>());
         }
+
         for (int i=0; i<nodes.length; i++) {
             adjList.get(nodes[i][0]).add(nodes[i][1]); //{0,2}의 0을 가져와서 adjlist의 0에 2넣기
             adjList.get(nodes[i][1]).add(nodes[i][0]); //{0,2}의 2를 가져와서 adjlist의 2에 0넣기
         }
+
         for(int i=0; i<adjList.size(); i++) {
             adjList.get(i).sort(Comparator.naturalOrder());
         }
@@ -36,7 +39,7 @@ public class A02Bfs최단거리 {
                 if(!visited[a]) {
                     visited[a]=true;        //큐에 담는 시점에 true세팅해야지, 중복해서 큐에 담기지 않음.
                     myQueue.add(a);
-//                   a는 temp의 이웃이니까 한칸 더 멀다(+1)는 뜻
+//                   이웃노드의 거리 : 현재노드+1
                     distance[a] = distance[temp]+1;
 //                   만약에 찾고자하는 target이 정해져 있으면 break;
                     if(a==target) { break; }
