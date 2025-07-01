@@ -8,10 +8,10 @@ import java.util.Set;
 
 public class A04숫자판점프 {
     //전역변수
-    static int[] dx = {1,-1,0,0};
-    static int[] dy = {0,0,-1,1};
+    static int[] dx = {1,-1,0,0};   //행
+    static int[] dy = {0,0,-1,1};   //열
     static int[][] arr = new int[5][5];
-    static Set<String> staticSet = new HashSet<>();
+    static Set<String> staticSet = new HashSet<>();   //중복제거용
 
     public static void main(String[] args) throws IOException {
 //    백준 : 숫자판 점프 (DFS, 상하좌우, 중복제거set)
@@ -24,7 +24,7 @@ public class A04숫자판점프 {
         }
         for (int i=0; i<5; i++){
             for (int j=0; j<5; j++){
-                dfs(String.valueOf(arr[i][j]), i, j);
+                dfs(String.valueOf(arr[i][j]), i, j);   //(0,0)부터 시작
             }
         }
         System.out.println(staticSet.size());

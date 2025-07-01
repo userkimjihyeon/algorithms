@@ -18,23 +18,25 @@ public class A02Bfs최단거리 {
         }
 
         for (int i=0; i<nodes.length; i++) {
-            adjList.get(nodes[i][0]).add(nodes[i][1]); //{0,2}의 0을 가져와서 adjlist의 0에 2넣기
-            adjList.get(nodes[i][1]).add(nodes[i][0]); //{0,2}의 2를 가져와서 adjlist의 2에 0넣기
+            adjList.get(nodes[i][0]).add(nodes[i][1]);
+            adjList.get(nodes[i][1]).add(nodes[i][0]);
         }
 
         for(int i=0; i<adjList.size(); i++) {
             adjList.get(i).sort(Comparator.naturalOrder());
         }
 
-//        Queue 안에 Integer가 아니라 int[]을 담아서 0번째는 노드번호, 1번째는 distance설계 가능.
+//        Queue 안에 Integer가 아니라 int[]을 담아서 0번째는 노드번호, 1번째는 distance설계 가능. -> A04참고
         Queue<Integer> myQueue = new LinkedList<>();
-        myQueue.add(0);                     //myQueue : 0,
+        myQueue.add(0);
         visited[0]=true;
+
         int[] distance = new int[5];
         int target=4;
 
         while(!myQueue.isEmpty()) {
-            int temp = myQueue.poll();      //myQueue -> temp에 넣기
+            int temp = myQueue.poll();
+
             for(int a : adjList.get(temp)) {
                 if(!visited[a]) {
                     visited[a]=true;        //큐에 담는 시점에 true세팅해야지, 중복해서 큐에 담기지 않음.

@@ -1,5 +1,6 @@
 package A3bfs;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 //        프로그래머스 : 가장먼노드
@@ -8,6 +9,7 @@ public class A03인접리스트활용거리 {
     static List<List<Integer>> adjList;
 
     public static void main(String[] args) {
+        //정점: 6, 간선: 7
         int n = 6;
         int[][] vertex = { {3,6}, {4,3}, {3,2}, {1,3}, {1,2}, {2,4}, {5,2} };
 
@@ -26,14 +28,12 @@ public class A03인접리스트활용거리 {
             adjList.get(e[1]).add(e[0]);
         }
 
-        // 정점 번호순 방문 정렬 (옵션)
         for (int i = 1; i <= n; i++) {
             adjList.get(i).sort(Comparator.naturalOrder());
         }
 
-        // 거리 배열 -1로 초기화
         int[] distance = new int[n + 1];
-        Arrays.fill(distance, -1);  // 방문안한곳은 -1로 깔아두기
+        Arrays.fill(distance, -1);
 
         Queue<Integer> queue = new LinkedList<>();
         queue.add(1);
