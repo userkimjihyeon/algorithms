@@ -9,7 +9,6 @@ import java.util.Scanner;
 //백준 : 가장 긴 증가하는 부분 수열 4(14002) -> 수열길이 + 수열자체
 public class A04문자열수열 {
     public static void main(String[] args) {
-        //arr[] 10 20 10 30 20 50
         //dp[] [1, 2, 1, 3, 2, 4]
 
         int[] arr = {10, 20, 10, 30, 20, 50};
