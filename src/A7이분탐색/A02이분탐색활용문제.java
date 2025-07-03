@@ -13,33 +13,35 @@ public class A02이분탐색활용문제 {
     public static void main(String[] args) throws IOException {
         // 120 110 140 150 => [1, 2, 3, ..., 150]
         int answer = -1;
-        int[] intArr = {70, 80, 30, 40, 100};
-        int total = 450;
+        int[] intArr = {120, 110, 140, 150};
+        int total = 485;
+
 //        Arrays.sort(intArr);
         int max = Arrays.stream(intArr).max().getAsInt();
-        int[] arr = new int[max];
+        int[] arr = new int[max];       // [1, 2, 3, ..., 150]
         for (int i = 0; i < max; i++) {
             arr[i] = i + 1;
         }
 
         int start = 0;
         int end = arr.length - 1;
-
         while (start <= end) {
+            int mid = (start + end) / 2;
+
+//            sum : 예산요청의 누적합(중간값이 더 작으면 교체)
             int sum = 0;
-            int idx = (start + end) / 2;
             for (int num : intArr) {
-                sum += Math.min(num, arr[idx]); //70,50->50
+                sum += Math.min(num, arr[mid]);
             }
 
             if (sum == total) {
-                answer = idx;
+                answer = mid;
                 break;
-            } else if (sum > total) {
-                end = idx - 1;
-            } else {
-                start = idx + 1;
-                answer = idx;
+            } else if (sum > total) {   //예산초과 -> 상한액 작게
+                end = mid - 1;
+            } else {                    //예산미만 -> 상한액 크게
+                start = mid + 1;
+                answer = mid;   //하는 이유? 이때까지 가능했다는 뜻
             }
         }
         System.out.println(arr[answer]);
