@@ -1,10 +1,7 @@
 package A7이분탐색;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 
 //백준 : 예산
 //백준 : 과자나눠주기(answer 찾은후에도 계속 탐색)
@@ -41,7 +38,7 @@ public class A02이분탐색활용문제 {
                 end = mid - 1;
             } else {                    //예산미만 -> 상한액 크게
                 start = mid + 1;
-                answer = mid;   //하는 이유? 이때까지 가능했다는 뜻
+                answer = mid;           //하는 이유? 이때까지 가능했다는 뜻
             }
         }
         System.out.println(arr[answer]);
