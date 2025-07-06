@@ -2,6 +2,7 @@ package A7이분탐색.문제;
 
 import java.util.Arrays;
 
+//백준 : 입국심사
 public class Q3079 {
     public static void main(String[] args) {
         //예제2) 7, 10, {3,8,3,6,9,2,4}, 8
