@@ -16,7 +16,7 @@ public class Q3079 {
         int start = 1;
         int end = arr.length;     // 7
 
-        //1. pu심사대중에서 최소시간과 mid를 비교해서
+        //1. 심사대중에서 최소시간과 mid를 비교해서
         //2. 1턴돌고 다음인원을 최소시간순서대로 할당
         while(start <= end) {
             int midIdx = (start+end) / 2;      // 4
